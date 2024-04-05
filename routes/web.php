@@ -1,5 +1,7 @@
 <?php
 
+use App\Events\TestEvent;
+use App\Http\Controllers\Usercontroller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+Route::get('chat', [Usercontroller::class, 'create'])->name('user.create');
+Route::post('chat', [Usercontroller::class, 'store']);
